@@ -38,7 +38,7 @@ public class Login extends javax.swing.JFrame {
         buttonToSetIncome = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        pushToRegisterPage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,9 +162,14 @@ public class Login extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(43, 43, 43));
         jLabel7.setText("Belum punya akun ?");
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(82, 128, 120));
-        jLabel6.setText("Daftar");
+        pushToRegisterPage.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        pushToRegisterPage.setForeground(new java.awt.Color(82, 128, 120));
+        pushToRegisterPage.setText("Daftar");
+        pushToRegisterPage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pushToRegisterPageMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -174,7 +179,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(132, 132, 132)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addComponent(pushToRegisterPage)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -188,7 +193,7 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(96, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel6))
+                    .addComponent(pushToRegisterPage))
                 .addGap(22, 22, 22))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -226,6 +231,12 @@ public class Login extends javax.swing.JFrame {
     private void buttonToSetIncomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonToSetIncomeMouseClicked
         
     }//GEN-LAST:event_buttonToSetIncomeMouseClicked
+
+    private void pushToRegisterPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pushToRegisterPageMouseClicked
+        // TODO add your handling code here:
+        new Register().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_pushToRegisterPageMouseClicked
 
     /**
      * @param args the command line arguments
@@ -271,9 +282,9 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel pushToRegisterPage;
     // End of variables declaration//GEN-END:variables
 }

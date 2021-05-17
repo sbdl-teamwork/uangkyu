@@ -42,7 +42,7 @@ public class Register extends javax.swing.JFrame {
         buttonToSetIncome = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        pushToLoginPage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -208,9 +208,14 @@ public class Register extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(43, 43, 43));
         jLabel7.setText("Sudah punya akun ?");
 
-        jLabel6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(82, 128, 120));
-        jLabel6.setText("Masuk");
+        pushToLoginPage.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        pushToLoginPage.setForeground(new java.awt.Color(82, 128, 120));
+        pushToLoginPage.setText("Masuk");
+        pushToLoginPage.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pushToLoginPageMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -225,7 +230,7 @@ public class Register extends javax.swing.JFrame {
                         .addGap(116, 116, 116)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel6)))
+                        .addComponent(pushToLoginPage)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -236,7 +241,7 @@ public class Register extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jLabel6))
+                    .addComponent(pushToLoginPage))
                 .addGap(22, 22, 22))
         );
 
@@ -279,6 +284,12 @@ public class Register extends javax.swing.JFrame {
     private void inputDescription3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDescription3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_inputDescription3ActionPerformed
+
+    private void pushToLoginPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pushToLoginPageMouseClicked
+        // TODO add your handling code here:
+        new Login().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_pushToLoginPageMouseClicked
 
     /**
      * @param args the command line arguments
@@ -326,11 +337,11 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel pushToLoginPage;
     // End of variables declaration//GEN-END:variables
 }
