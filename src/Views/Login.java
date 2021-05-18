@@ -8,6 +8,8 @@ package Views;
 import Models.User;
 import Services.UserService;
 import javax.swing.JOptionPane;
+import java.io.File;
+import java.io.FileWriter;
 
 /**
  *
@@ -250,10 +252,20 @@ public class Login extends javax.swing.JFrame {
             
             if (user.getId() == 0) {
                 JOptionPane.showMessageDialog(this, "User tidak ditemukan");
+                return;
             }
         } catch (Exception err) {
             JOptionPane.showMessageDialog(this, "Login gagal\nerror" + err.getMessage());
         }
+        
+        try {
+            FileWriter file = new FileWriter("email.txt");
+            file.write(email);
+            file.close();
+          } catch (Exception e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+          }
     }//GEN-LAST:event_requestLoginButtonMouseClicked
 
     private void pushToRegisterPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pushToRegisterPageMouseClicked
