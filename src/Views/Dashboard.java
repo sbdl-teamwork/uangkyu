@@ -423,14 +423,14 @@ public class Dashboard extends javax.swing.JFrame {
 
             },
             new String [] {
-                "id", "Tanggal", "Deskripsi", "Nominal"
+                "id", "Tanggal", "Deskripsi", "Nominal", "Jenis"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -455,6 +455,7 @@ public class Dashboard extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(1).setResizable(false);
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
         endIntervalDate.setPreferredSize(new java.awt.Dimension(265, 45));
@@ -660,7 +661,7 @@ public class Dashboard extends javax.swing.JFrame {
     public void centeringTableColumn() {
         DefaultTableCellRenderer centerAlign = new DefaultTableCellRenderer();
         centerAlign.setHorizontalAlignment(JLabel.CENTER);
-        for(int i = 0; i < 4; i++) {
+        for(int i = 0; i < 5; i++) {
             this.jTable1.getColumnModel().getColumn(i).setCellRenderer(centerAlign);
         }
         
@@ -688,7 +689,7 @@ public class Dashboard extends javax.swing.JFrame {
             for(Activity item : activities) {
                 DefaultTableModel tableModel = (DefaultTableModel)this.jTable1.getModel();
                 tableModel.addRow(
-                    new Object[]{item.getId(),item.getUpdatedAt() , item.getDescription(), item.getNominal()}
+                    new Object[]{item.getId(),item.getUpdatedAt() , item.getDescription(), item.getNominal(), item.getType().getName()}
                 );
                 
                 if(item.getNominal() > 0) totalIncome = totalIncome + item.getNominal();
