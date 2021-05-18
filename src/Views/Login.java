@@ -5,6 +5,8 @@
  */
 package Views;
 
+import Models.User;
+import Services.UserService;
 import javax.swing.JOptionPane;
 
 /**
@@ -240,8 +242,18 @@ public class Login extends javax.swing.JFrame {
             return;
         }
         
-        System.out.println("Email : " + email);
-        System.out.println("Password : " + password);
+        UserService userService = new UserService();
+        userService.setEmail(email).setPassword(password);
+        
+        try {
+            User user = userService.login();
+            
+            if (user.getId() == 0) {
+                JOptionPane.showMessageDialog(this, "User tidak ditemukan");
+            }
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(this, "Login gagal\nerror" + err.getMessage());
+        }
     }//GEN-LAST:event_requestLoginButtonMouseClicked
 
     private void pushToRegisterPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pushToRegisterPageMouseClicked
