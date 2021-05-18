@@ -8,6 +8,7 @@ package Services;
 import Models.User;
 import Utils.Database;
 import java.io.File;
+import java.io.FileWriter;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -116,10 +117,12 @@ public class UserService extends User {
     
     public void logout() throws Exception {
         try {
-            File file = new File("email.txt");
-            file.delete();
-        } catch (Exception err) {
-            throw err;
+            FileWriter file = new FileWriter("email.txt");
+            file.write("");
+            file.close();
+        } catch (Exception e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
         }
     }
 }
