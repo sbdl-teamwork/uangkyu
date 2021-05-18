@@ -113,4 +113,13 @@ public class UserService extends User {
 
         return userService.getUserByEmail();   
     }
+    
+    public void logout() throws Exception {
+        try {
+            File file = new File("email.txt");
+            file.delete();
+        } catch (Exception err) {
+            throw err;
+        }
+    }
 }

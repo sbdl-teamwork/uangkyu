@@ -606,6 +606,13 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void logoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseClicked
         // TODO add your handling code here:
+        try {
+            new UserService().logout();
+            new Login().setVisible(true);
+            this.setVisible(false);
+        } catch (Exception err) {
+            System.out.println(err.getMessage());
+        }
     }//GEN-LAST:event_logoutButtonMouseClicked
     
     public void insertData(String type) {
