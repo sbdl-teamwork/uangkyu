@@ -266,6 +266,9 @@ public class Login extends javax.swing.JFrame {
             System.out.println("An error occurred.");
             e.printStackTrace();
           }
+        
+        new Dashboard().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_requestLoginButtonMouseClicked
 
     private void pushToRegisterPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pushToRegisterPageMouseClicked
