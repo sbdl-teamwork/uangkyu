@@ -62,7 +62,7 @@ public class ActivityService extends Activity {
     
     public void update() throws Exception {
         String query = String.format(
-            "UPDATE %s SET description = '%s', nominal = %f, updated_at = '%s' WHERE id = %d user_id = %d",
+            "UPDATE %s SET description = '%s', nominal = %f, updated_at = \"%s\" WHERE id = %d AND user_id = %d",
             this.tableName, 
             this.getDescription(), 
             this.getNominal(), 
