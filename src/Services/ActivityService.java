@@ -24,12 +24,18 @@ public class ActivityService extends Activity {
         this.setNominal(activity.getNominal());
         this.setCreatedAt(activity.getCreatedAt());
         this.setUpdatedAt(activity.getUpdatedAt());
+        this.setUser(activity.getUser());
     }
     
     public void insert() throws Exception {
         String query = String.format(
-            "INSERT INTO %s (description, nominal, created_at, updated_at) VALUES (\"%s\", %f, \"%s\", \"%s\")", 
-            this.tableName, this.getDescription(), this.getNominal(), this.getCreatedAt(), this.getUpdatedAt()
+            "INSERT INTO %s (description, nominal, user_id, created_at, updated_at) VALUES (\"%s\", %f, %d, \"%s\", \"%s\")", 
+            this.tableName, 
+            this.getDescription(), 
+            this.getNominal(), 
+            this.getUser().getId(), 
+            this.getCreatedAt(), 
+            this.getUpdatedAt()
         );
         
         try {

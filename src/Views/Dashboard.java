@@ -614,14 +614,13 @@ public class Dashboard extends javax.swing.JFrame {
             .setDescription(description)
             .setNominal(nominal)
             .setCreatedAt(createdAt)
-            .setUpdatedAt(updatedAt);
-            
+            .setUpdatedAt(updatedAt)
+            .setUser(this.user);
+        
         ActivityService activityService = new ActivityService(activity);
         
         try {
             activityService.insert();
-            this.refreshUI();
-            this.resetForm();
         } catch (Exception err) {
             this.alert.showMessageDialog(null, err.getMessage());
         }
