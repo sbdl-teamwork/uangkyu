@@ -727,7 +727,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
     }
     private JOptionPane alert;
-    private User user;
+    public User user;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonToSetExpense;
     private javax.swing.JPanel buttonToSetIncome;
