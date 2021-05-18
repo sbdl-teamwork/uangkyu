@@ -21,6 +21,7 @@ public class Activity {
     private String createdAt;
     private String updatedAt;
     private User user;
+    private Type type;
     protected String tableName = "activities";
     
     public int getId() {
@@ -74,6 +75,15 @@ public class Activity {
     
     public Activity setUser(User user) {
         this.user = user;
+        return this;
+    }
+    
+    public Type getType() {
+        return type;
+    }
+    
+    public Activity setType(Type type) {
+        this.type = type;
         return this;
     }
 }
