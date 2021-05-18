@@ -616,7 +616,7 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutButtonMouseClicked
     
-    public void insertData(String type) {
+    public void insertData(String typeActivity) {
         try {
             Float.parseFloat(this.inputNominal.getText());
         } catch (Exception err) {
@@ -637,14 +637,18 @@ public class Dashboard extends javax.swing.JFrame {
         String createdAt = time.parseDatetime();
         String updatedAt = time.parseDatetime();
         
-        nominal = type == "+" ? nominal : -1 * nominal;
+        String typeId = typeActivity.equals("+") ? "PMSK" : "PLRN";
         
         Activity activity = new Activity();
+        Models.Type type = new Models.Type();
+        type.setId(typeId);
+        
         activity
             .setDescription(description)
             .setNominal(nominal)
             .setCreatedAt(createdAt)
             .setUpdatedAt(updatedAt)
+            .setType(type)
             .setUser(this.user);
         
         ActivityService activityService = new ActivityService(activity);

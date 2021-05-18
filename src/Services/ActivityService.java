@@ -26,19 +26,22 @@ public class ActivityService extends Activity {
         this.setCreatedAt(activity.getCreatedAt());
         this.setUpdatedAt(activity.getUpdatedAt());
         this.setUser(activity.getUser());
+        this.setType(activity.getType());
     }
     
     public void insert() throws Exception {
+        System.out.println(this.getType().getId());
         String query = String.format(
-            "INSERT INTO %s (description, nominal, user_id, created_at, updated_at) VALUES (\"%s\", %f, %d, \"%s\", \"%s\")", 
+            "INSERT INTO %s (description, nominal, user_id, type, created_at, updated_at) VALUES (\"%s\", %f, %d, '%s', \"%s\", \"%s\")", 
             this.tableName, 
             this.getDescription(), 
             this.getNominal(), 
             this.getUser().getId(), 
+            this.getType().getId(),
             this.getCreatedAt(), 
             this.getUpdatedAt()
         );
-        
+        System.out.println(query);
         try {
             Statement statement = Database.ConfigDB().createStatement();
             statement.executeUpdate(query);
