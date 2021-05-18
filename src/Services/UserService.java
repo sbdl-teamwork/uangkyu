@@ -7,6 +7,7 @@ package Services;
 
 import Models.User;
 import Utils.Database;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 /**
@@ -28,5 +29,38 @@ public class UserService extends User {
         } catch (Exception err) {
             throw err;
         }
+    }
+    
+    public User login() throws Exception {
+        String query = String.format(
+            "SELECT * FROM users WHERE email = '%s' AND password = '%s'",
+            this.getEmail(), this.getPassword()
+        );
+        
+        User user = new User();
+        
+        try {
+            Statement statement = Database.ConfigDB().createStatement();
+            ResultSet result = statement.executeQuery(query);
+            
+            while(result.next()) {
+                int id = result.getInt("id");
+                String name = result.getString("name");
+                String createdAt = result.getString("created_at");
+                String email = result.getString("email");
+                String password = result.getString("password");
+                
+                user
+                    .setId(id)
+                    .setName(name)
+                    .setPassword(password)
+                    .setEmail(email)
+                    .setCreatedAt(createdAt);
+            }
+        } catch (Exception err) {
+            throw err;
+        }
+        
+        return user;
     }
 }
