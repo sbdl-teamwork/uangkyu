@@ -5,6 +5,8 @@
  */
 package Views;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alfian-andi
@@ -31,15 +33,15 @@ public class Register extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        inputDescription = new javax.swing.JTextField();
+        inputEmail = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        inputDescription1 = new javax.swing.JTextField();
-        inputDescription2 = new javax.swing.JTextField();
+        inputName = new javax.swing.JTextField();
+        inputPassword = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        inputDescription3 = new javax.swing.JTextField();
+        inputRePassword = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        buttonToSetIncome = new javax.swing.JPanel();
+        registerButton = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         pushToLoginPage = new javax.swing.JLabel();
@@ -63,12 +65,12 @@ public class Register extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Email");
 
-        inputDescription.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        inputDescription.setMargin(new java.awt.Insets(0, 10, 0, 10));
-        inputDescription.setPreferredSize(new java.awt.Dimension(265, 45));
-        inputDescription.addActionListener(new java.awt.event.ActionListener() {
+        inputEmail.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        inputEmail.setMargin(new java.awt.Insets(0, 10, 0, 10));
+        inputEmail.setPreferredSize(new java.awt.Dimension(265, 45));
+        inputEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputDescriptionActionPerformed(evt);
+                inputEmailActionPerformed(evt);
             }
         });
 
@@ -77,21 +79,21 @@ public class Register extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fullname");
 
-        inputDescription1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        inputDescription1.setMargin(new java.awt.Insets(0, 10, 0, 10));
-        inputDescription1.setPreferredSize(new java.awt.Dimension(265, 45));
-        inputDescription1.addActionListener(new java.awt.event.ActionListener() {
+        inputName.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        inputName.setMargin(new java.awt.Insets(0, 10, 0, 10));
+        inputName.setPreferredSize(new java.awt.Dimension(265, 45));
+        inputName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputDescription1ActionPerformed(evt);
+                inputNameActionPerformed(evt);
             }
         });
 
-        inputDescription2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        inputDescription2.setMargin(new java.awt.Insets(0, 10, 0, 10));
-        inputDescription2.setPreferredSize(new java.awt.Dimension(265, 45));
-        inputDescription2.addActionListener(new java.awt.event.ActionListener() {
+        inputPassword.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        inputPassword.setMargin(new java.awt.Insets(0, 10, 0, 10));
+        inputPassword.setPreferredSize(new java.awt.Dimension(265, 45));
+        inputPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputDescription2ActionPerformed(evt);
+                inputPasswordActionPerformed(evt);
             }
         });
 
@@ -100,12 +102,12 @@ public class Register extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Password");
 
-        inputDescription3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        inputDescription3.setMargin(new java.awt.Insets(0, 10, 0, 10));
-        inputDescription3.setPreferredSize(new java.awt.Dimension(265, 45));
-        inputDescription3.addActionListener(new java.awt.event.ActionListener() {
+        inputRePassword.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        inputRePassword.setMargin(new java.awt.Insets(0, 10, 0, 10));
+        inputRePassword.setPreferredSize(new java.awt.Dimension(265, 45));
+        inputRePassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputDescription3ActionPerformed(evt);
+                inputRePasswordActionPerformed(evt);
             }
         });
 
@@ -125,16 +127,16 @@ public class Register extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputDescription, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputDescription1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputDescription2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(inputDescription3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(inputRePassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(77, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -147,7 +149,7 @@ public class Register extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(inputDescription3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(inputRePassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
@@ -155,27 +157,27 @@ public class Register extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(inputDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(inputEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(inputDescription2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(inputPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(inputDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(inputName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        buttonToSetIncome.setBackground(new java.awt.Color(82, 128, 120));
-        buttonToSetIncome.setForeground(new java.awt.Color(255, 255, 255));
-        buttonToSetIncome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonToSetIncome.setPreferredSize(new java.awt.Dimension(265, 45));
-        buttonToSetIncome.addMouseListener(new java.awt.event.MouseAdapter() {
+        registerButton.setBackground(new java.awt.Color(82, 128, 120));
+        registerButton.setForeground(new java.awt.Color(255, 255, 255));
+        registerButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registerButton.setPreferredSize(new java.awt.Dimension(265, 45));
+        registerButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonToSetIncomeMouseClicked(evt);
+                registerButtonMouseClicked(evt);
             }
         });
 
@@ -183,22 +185,22 @@ public class Register extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Regsiter");
 
-        javax.swing.GroupLayout buttonToSetIncomeLayout = new javax.swing.GroupLayout(buttonToSetIncome);
-        buttonToSetIncome.setLayout(buttonToSetIncomeLayout);
-        buttonToSetIncomeLayout.setHorizontalGroup(
-            buttonToSetIncomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout registerButtonLayout = new javax.swing.GroupLayout(registerButton);
+        registerButton.setLayout(registerButtonLayout);
+        registerButtonLayout.setHorizontalGroup(
+            registerButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 265, Short.MAX_VALUE)
-            .addGroup(buttonToSetIncomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonToSetIncomeLayout.createSequentialGroup()
+            .addGroup(registerButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerButtonLayout.createSequentialGroup()
                     .addContainerGap(111, Short.MAX_VALUE)
                     .addComponent(jLabel5)
                     .addContainerGap(112, Short.MAX_VALUE)))
         );
-        buttonToSetIncomeLayout.setVerticalGroup(
-            buttonToSetIncomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        registerButtonLayout.setVerticalGroup(
+            registerButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 45, Short.MAX_VALUE)
-            .addGroup(buttonToSetIncomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, buttonToSetIncomeLayout.createSequentialGroup()
+            .addGroup(registerButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, registerButtonLayout.createSequentialGroup()
                     .addContainerGap(14, Short.MAX_VALUE)
                     .addComponent(jLabel5)
                     .addContainerGap(14, Short.MAX_VALUE)))
@@ -225,7 +227,7 @@ public class Register extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
-                        .addComponent(buttonToSetIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(116, 116, 116)
                         .addComponent(jLabel7)
@@ -237,7 +239,7 @@ public class Register extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(buttonToSetIncome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -266,25 +268,38 @@ public class Register extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputDescriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDescriptionActionPerformed
+    private void inputEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputDescriptionActionPerformed
+    }//GEN-LAST:event_inputEmailActionPerformed
 
-    private void inputDescription1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDescription1ActionPerformed
+    private void inputNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputDescription1ActionPerformed
+    }//GEN-LAST:event_inputNameActionPerformed
 
-    private void buttonToSetIncomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonToSetIncomeMouseClicked
+    private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
+        String email = this.inputEmail.getText();
+        String name = this.inputName.getText();
+        String password = this.inputPassword.getText();
+        String rePassword = this.inputRePassword.getText();
+        
+        if (email.equals("") || name.equals("") || password.equals("") || rePassword.equals("")) {
+            JOptionPane.showMessageDialog(this, "Harap isi form dengan benar");
+            return;
+        }
+        
+        if (!password.equals(rePassword)) {
+            JOptionPane.showMessageDialog(this, "Password tidak sama");
+            return;
+        }
+    }//GEN-LAST:event_registerButtonMouseClicked
 
-    }//GEN-LAST:event_buttonToSetIncomeMouseClicked
-
-    private void inputDescription2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDescription2ActionPerformed
+    private void inputPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputPasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputDescription2ActionPerformed
+    }//GEN-LAST:event_inputPasswordActionPerformed
 
-    private void inputDescription3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputDescription3ActionPerformed
+    private void inputRePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputRePasswordActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputDescription3ActionPerformed
+    }//GEN-LAST:event_inputRePasswordActionPerformed
 
     private void pushToLoginPageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pushToLoginPageMouseClicked
         // TODO add your handling code here:
@@ -328,11 +343,10 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel buttonToSetIncome;
-    private javax.swing.JTextField inputDescription;
-    private javax.swing.JTextField inputDescription1;
-    private javax.swing.JTextField inputDescription2;
-    private javax.swing.JTextField inputDescription3;
+    private javax.swing.JTextField inputEmail;
+    private javax.swing.JTextField inputName;
+    private javax.swing.JTextField inputPassword;
+    private javax.swing.JTextField inputRePassword;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -344,5 +358,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel pushToLoginPage;
+    private javax.swing.JPanel registerButton;
     // End of variables declaration//GEN-END:variables
 }
