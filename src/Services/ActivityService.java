@@ -48,8 +48,8 @@ public class ActivityService extends Activity {
     
     public void delete() throws Exception {
         String query = String.format(
-            "DELETE FROM %s WHERE id = %d",
-            this.tableName, this.getId()
+            "DELETE FROM %s WHERE id = %d AND user_id = %d",
+            this.tableName, this.getId(), this.getUser().getId()
         );
         
         try {

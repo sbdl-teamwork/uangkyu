@@ -350,7 +350,8 @@ public class Modal extends javax.swing.JFrame {
     private void buttonToDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonToDeleteMouseClicked
         ActivityService activityService = new ActivityService();
         activityService
-            .setId(this.id);
+            .setId(this.id)
+            .setUser(this.dashboard.user);
         try {
             activityService.delete();
             this.setVisible(false);
