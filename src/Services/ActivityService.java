@@ -62,8 +62,13 @@ public class ActivityService extends Activity {
     
     public void update() throws Exception {
         String query = String.format(
-            "UPDATE %s SET description = \"%s\", nominal = %f, updated_at = \"%s\" WHERE id = %d",
-            this.tableName, this.getDescription(), this.getNominal(), this.getUpdatedAt(), this.getId()
+            "UPDATE %s SET description = '%s', nominal = %f, updated_at = '%s' WHERE id = %d user_id = %d",
+            this.tableName, 
+            this.getDescription(), 
+            this.getNominal(), 
+            this.getUpdatedAt(), 
+            this.getId(),
+            this.getUser().getId()
         );
         
         try {

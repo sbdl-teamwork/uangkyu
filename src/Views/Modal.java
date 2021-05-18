@@ -66,7 +66,8 @@ public class Modal extends javax.swing.JFrame {
             .setId(this.id)
             .setDescription(description)
             .setNominal(nominal)
-            .setUpdatedAt(updatedAt);
+            .setUpdatedAt(updatedAt)
+            .setUser(this.dashboard.user);
         
         try {
             activityService.update();
