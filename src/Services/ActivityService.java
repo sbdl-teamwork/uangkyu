@@ -6,6 +6,7 @@
 package Services;
 
 import Models.Activity;
+import Models.Type;
 import Utils.Database;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -95,11 +96,17 @@ public class ActivityService extends Activity {
                 String createdAt = result.getString("created_at");
                 String updatedAt = result.getString("updated_at");
                 
+                Type type = new Type();
+                String name = result.getString("name");
+                String typeId = result.getString("type");
+                type.setId(typeId).setName(name);
+                
                 activity
                     .setId(id)
                     .setDescription(description)
                     .setCreatedAt(createdAt)
                     .setUpdatedAt(updatedAt)
+                    .setType(type)
                     .setNominal(nominal);
                 
                 activities.add(activity);
@@ -114,7 +121,7 @@ public class ActivityService extends Activity {
     
     public ArrayList<Activity> getByInterval(String from, String to) throws Exception {
         String query = String.format(
-            "SELECT * FROM %s WHERE updated_at >= '%s' AND updated_at <= '%s' AND user_id = '%d' ORDER BY updated_at DESC",
+            "SELECT * FROM %s INNER JOIN types ON activities.type = types.id WHERE updated_at >= '%s' AND updated_at <= '%s' AND user_id = '%d' ORDER BY updated_at DESC",
             this.tableName, from, to, this.getUser().getId()
         );
         
