@@ -39,7 +39,7 @@ public class Modal extends javax.swing.JFrame {
         this.inputNominal.setText(String.valueOf(Math.abs(this.nominal)));
     }
 
-    public void updateData(String type) {
+    public void updateData(String typeActivity) {
         try {
             Float.parseFloat(this.inputNominal.getText());
         } catch (Exception err) {
@@ -59,14 +59,18 @@ public class Modal extends javax.swing.JFrame {
         float nominal = Float.parseFloat(this.inputNominal.getText());
         String updatedAt = time.parseDatetime();
         
-        nominal = type == "+" ? Math.abs(nominal) : -1 * Math.abs(nominal);
+        String typeId = typeActivity == "+" ? "PMSK" : "PLRN";
         
         ActivityService activityService = new ActivityService();
+        Models.Type type = new Models.Type();
+        type.setId(typeId);
+        
         activityService
             .setId(this.id)
             .setDescription(description)
             .setNominal(nominal)
             .setUpdatedAt(updatedAt)
+            .setType(type)
             .setUser(this.dashboard.user);
         
         try {
