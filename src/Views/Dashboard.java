@@ -643,6 +643,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.centeringTableColumn();
         
         ActivityService activityService = new ActivityService();
+        activityService.setUser(user);
         
         String startInterval = (new Time()).setDate(this.startIntervalDate.getDate()).parseDatetime();
         String endInterval = (new Time()).setDate(this.endIntervalDate.getDate()).parseDatetime();

@@ -109,8 +109,8 @@ public class ActivityService extends Activity {
     
     public ArrayList<Activity> getByInterval(String from, String to) throws Exception {
         String query = String.format(
-            "SELECT * FROM %s WHERE updated_at >= \"%s\" AND updated_at <= \"%s\" ORDER BY updated_at DESC",
-            this.tableName, from, to
+            "SELECT * FROM %s WHERE updated_at >= '%s' AND updated_at <= '%s' AND user_id = '%d' ORDER BY updated_at DESC",
+            this.tableName, from, to, this.getUser().getId()
         );
         
         ArrayList<Activity> activities =  new ArrayList<Activity>();
