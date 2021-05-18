@@ -5,6 +5,7 @@
  */
 package Views;
 
+import Services.UserService;
 import javax.swing.JOptionPane;
 
 /**
@@ -290,6 +291,23 @@ public class Register extends javax.swing.JFrame {
         if (!password.equals(rePassword)) {
             JOptionPane.showMessageDialog(this, "Password tidak sama");
             return;
+        }
+        
+        UserService userService = new UserService();
+        userService
+            .setEmail(email)
+            .setPassword(password)
+            .setName(name);
+        
+        try {
+            userService.register();
+            new Dashboard().setVisible(true);
+            this.setVisible(false);
+        } catch (Exception err) {
+            JOptionPane.showMessageDialog(
+                    this, 
+                    "Gagal melakukan pendaftaran\nerror: " + err.getMessage()
+            );
         }
     }//GEN-LAST:event_registerButtonMouseClicked
 
