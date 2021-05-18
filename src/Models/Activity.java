@@ -20,6 +20,7 @@ public class Activity {
     private float nominal;
     private String createdAt;
     private String updatedAt;
+    private User user;
     protected String tableName = "activities";
     
     public int getId() {
@@ -64,6 +65,15 @@ public class Activity {
 
     public Activity setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+        return this;
+    }
+    
+    public User getUser() {
+        return user;
+    }
+    
+    public Activity setUser(User user) {
+        this.user = user;
         return this;
     }
 }
