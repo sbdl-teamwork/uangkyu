@@ -11,7 +11,9 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.lang.Math;
 import Models.Activity;
+import Models.User;
 import Services.ActivityService;
+import Services.UserService;
 import Utils.Time;
 import javax.swing.JLabel;
 
@@ -25,7 +27,12 @@ public class Dashboard extends javax.swing.JFrame {
      * Creates new form Dashboard
      */
     public Dashboard() {
-        initComponents();
+        try {
+            this.user = new UserService().getCurrentUser();
+            initComponents();
+        } catch (Exception err) {
+            new Login().setVisible(true);
+        }
         Time time = new Time();
         this.endIntervalDate.setDate(time.getDate());
         this.inputDate.setDate(time.getDate());
@@ -718,6 +725,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
     }
     private JOptionPane alert;
+    private User user;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonToSetExpense;
     private javax.swing.JPanel buttonToSetIncome;
