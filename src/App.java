@@ -9,11 +9,12 @@ import Views.Dashboard;
 import Views.Login;
 import java.io.File;
 import java.util.Scanner;
+import javafx.application.Application;
 /**
  *
  * @author Alfian Andi Nugraha
  */
-public class App {
+public abstract class App extends Application {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
