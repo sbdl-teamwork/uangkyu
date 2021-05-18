@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import Models.User;
+import Services.UserService;
 import Views.Dashboard;
+import Views.Login;
+import java.io.File;
+import java.util.Scanner;
 /**
  *
  * @author Alfian Andi Nugraha
@@ -37,7 +42,13 @@ public class App {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                try {
+                    new UserService().getCurrentUser(); 
+                    new Dashboard().setVisible(true);
+                } catch (Exception err) {
+                    new Login().setVisible(true);
+                    System.out.println(err.getMessage());
+                }
             }
         });
     }

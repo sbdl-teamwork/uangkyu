@@ -7,8 +7,10 @@ package Services;
 
 import Models.User;
 import Utils.Database;
+import java.io.File;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Scanner;
 
 /**
  *
@@ -62,5 +64,53 @@ public class UserService extends User {
         }
         
         return user;
+    }
+    
+    public User getUserByEmail() throws Exception {
+        String query = String.format(
+            "SELECT * FROM users WHERE email = '%s'",
+            this.getEmail()
+        );
+        
+        User user = new User();
+        
+        try {
+            Statement statement = Database.ConfigDB().createStatement();
+            ResultSet result = statement.executeQuery(query);
+            
+            while(result.next()) {
+                int id = result.getInt("id");
+                String name = result.getString("name");
+                String createdAt = result.getString("created_at");
+                String email = result.getString("email");
+                String password = result.getString("password");
+                
+                user
+                    .setId(id)
+                    .setName(name)
+                    .setPassword(password)
+                    .setEmail(email)
+                    .setCreatedAt(createdAt);
+            }
+        } catch (Exception err) {
+            throw err;
+        }
+        
+        if (user.getId() == 0) {
+            throw new Exception("User tidak ditemukan");
+        }
+        
+        return user;
+    }
+    
+    public User getCurrentUser() throws Exception {
+        File file = new File("email.txt");
+        Scanner reader = new Scanner(file);
+        String email = reader.nextLine();
+
+        UserService userService = new UserService();
+        userService.setEmail(email);
+
+        return userService.getUserByEmail();   
     }
 }
