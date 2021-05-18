@@ -621,6 +621,8 @@ public class Dashboard extends javax.swing.JFrame {
         
         try {
             activityService.insert();
+            this.refreshUI();
+            this.resetForm();
         } catch (Exception err) {
             this.alert.showMessageDialog(null, err.getMessage());
         }
