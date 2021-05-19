@@ -125,7 +125,7 @@ public class ActivityService extends Activity {
     
     public ArrayList<Activity> getByInterval(String from, String to) throws Exception {
         String query = String.format(
-            "SELECT * FROM %s INNER JOIN types ON activities.type = types.id WHERE updated_at >= '%s' AND updated_at <= '%s' AND user_id = '%d' ORDER BY updated_at DESC",
+            "SELECT * FROM %s INNER JOIN types ON activities.type = types.id WHERE activities.updated_at >= '%s' AND activities.updated_at <= '%s' AND user_id = %d ORDER BY updated_at DESC",
             this.tableName, from, to, this.getUser().getId()
         );
         
@@ -155,5 +155,51 @@ public class ActivityService extends Activity {
         }
         
         return activities;
+    }
+    
+    public float getTotalIncome(String from, String to) throws Exception {
+        String query = String.format(
+            "SELECT get_total_income(%d, '%s', '%s') AS income",
+            this.getUser().getId(),
+            from, to
+        );
+        
+        float total = 0;
+        
+        try {
+            Statement statement = Database.ConfigDB().createStatement();
+            ResultSet result = statement.executeQuery(query);
+            
+            while(result.next()) {
+                total = result.getFloat("income");
+            }
+        } catch (Exception err) {
+            throw err;
+        }
+        
+        return total;
+    }
+    
+    public float getTotalExpense(String from, String to) throws Exception {
+        String query = String.format(
+            "SELECT get_total_expense(%d, '%s', '%s') AS expense",
+            this.getUser().getId(),
+            from, to
+        );
+        
+        float total = 0;
+        
+        try {
+            Statement statement = Database.ConfigDB().createStatement();
+            ResultSet result = statement.executeQuery(query);
+            
+            while(result.next()) {
+                total = result.getFloat("expense");
+            }
+        } catch (Exception err) {
+            throw err;
+        }
+        
+        return total;
     }
 }
