@@ -654,7 +654,11 @@ public class Dashboard extends javax.swing.JFrame {
         ActivityService activityService = new ActivityService(activity);
         
         try {
-            activityService.insert();
+            if (typeActivity.equals("+")) {
+                activityService.insertIncome();
+            } else {
+                activityService.insertExpense();
+            }
             this.refreshUI();
             this.resetForm();
         } catch (Exception err) {

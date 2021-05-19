@@ -202,4 +202,38 @@ public class ActivityService extends Activity {
         
         return total;
     }
+    
+    public void insertIncome() throws Exception {
+        String query = String.format(
+            "CALL insert_income_activity('%s', %f, %d, '%s')",
+            this.getDescription(), 
+            this.getNominal(), 
+            this.getUser().getId(), 
+            this.getCreatedAt()
+        );
+        
+        try {
+            Statement statement = Database.ConfigDB().createStatement();
+            statement.executeUpdate(query);
+        } catch (Exception err) {
+            throw err;
+        }
+    }
+    
+    public void insertExpense() throws Exception {
+        String query = String.format(
+            "CALL insert_expense_activity('%s', %f, %d, '%s')",
+            this.getDescription(), 
+            this.getNominal(), 
+            this.getUser().getId(), 
+            this.getCreatedAt()
+        );
+        
+        try {
+            Statement statement = Database.ConfigDB().createStatement();
+            statement.executeUpdate(query);
+        } catch (Exception err) {
+            throw err;
+        }
+    }
 }
