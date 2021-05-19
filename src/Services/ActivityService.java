@@ -254,4 +254,22 @@ public class ActivityService extends Activity {
             throw err;
         }
     }
+    
+    public void updateExpense() throws Exception {
+        String query = String.format(
+            "CALL update_expense_activity(%d, '%s', %f, %d, '%s')",
+            this.getId(),
+            this.getDescription(), 
+            this.getNominal(), 
+            this.getUser().getId(), 
+            this.getUpdatedAt()
+        );
+        
+        try {
+            Statement statement = Database.ConfigDB().createStatement();
+            statement.executeUpdate(query);
+        } catch (Exception err) {
+            throw err;
+        }
+    }
 }

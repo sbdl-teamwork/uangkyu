@@ -77,7 +77,7 @@ public class Modal extends javax.swing.JFrame {
             if (typeActivity.equals("+")) {
                 activityService.updateIncome();
             } else {
-                activityService.update();
+                activityService.updateExpense();
             }
             this.dashboard.refreshUI();
             this.dashboard.resetForm();
