@@ -44,8 +44,11 @@ public class ActivityService extends Activity {
         }
     }
     
-    private ArrayList<Activity> get(String querySelect) throws Exception {
-        String query = querySelect;
+    public ArrayList<Activity> getByInterval(String from, String to) throws Exception {
+        String query = String.format(
+            "SELECT * FROM transaction_activities WHERE date_at >= '%s' AND date_at <= '%s' AND user_id = %d ORDER BY date_at DESC",
+            from, to, this.getUser().getId()
+        );
         
         ArrayList<Activity> activities =  new ArrayList<Activity>();
         
@@ -78,25 +81,6 @@ public class ActivityService extends Activity {
                 activities.add(activity);
             }
             
-        } catch (Exception err) {
-            throw err;
-        }
-        
-        return activities;
-    }
-    
-    public ArrayList<Activity> getByInterval(String from, String to) throws Exception {
-        String query = String.format(
-            "SELECT * FROM transaction_activities WHERE date_at >= '%s' AND date_at <= '%s' AND user_id = %d ORDER BY date_at DESC",
-            from, to, this.getUser().getId()
-        );
-        
-        System.out.println(query);
-        
-        ArrayList<Activity> activities =  new ArrayList<Activity>();
-        
-        try {
-            activities = this.get(query);
         } catch (Exception err) {
             throw err;
         }
