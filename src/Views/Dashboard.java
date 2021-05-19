@@ -684,10 +684,6 @@ public class Dashboard extends javax.swing.JFrame {
         String startInterval = (new Time()).setDate(this.startIntervalDate.getDate()).parseDatetime();
         String endInterval = (new Time()).setDate(this.endIntervalDate.getDate()).parseDatetime();
         
-        float totalIncome = 0;
-        float totalOutcome = 0;
-        float totalNominal = 0;
-        
         try {
             ArrayList<Activity> activities = activityService.getByInterval(startInterval, endInterval);
             for(Activity item : activities) {
@@ -695,12 +691,19 @@ public class Dashboard extends javax.swing.JFrame {
                 tableModel.addRow(
                     new Object[]{item.getId(),item.getUpdatedAt() , item.getDescription(), item.getNominal(), item.getType().getName()}
                 );
-                
-                if(item.getNominal() > 0) totalIncome = totalIncome + item.getNominal();
-                else totalOutcome = totalOutcome + item.getNominal();
             }
-            totalNominal = totalIncome + totalOutcome;
         } catch(Exception err) {
+            System.out.println(err.getMessage());
+        }
+        float totalIncome = 0;
+        float totalOutcome = 0;
+        float totalNominal = 0;
+        
+        try {
+            totalIncome = activityService.getTotalIncome(startInterval, endInterval);
+            totalOutcome = activityService.getTotalExpense(startInterval, endInterval);
+            totalNominal = totalIncome - totalOutcome;
+        } catch (Exception err) {
             System.out.println(err.getMessage());
         }
         
