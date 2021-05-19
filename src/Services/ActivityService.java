@@ -52,8 +52,8 @@ public class ActivityService extends Activity {
     
     public void delete() throws Exception {
         String query = String.format(
-            "DELETE FROM %s WHERE id = %d AND user_id = %d",
-            this.tableName, this.getId(), this.getUser().getId()
+            "CALL delete_activity(%d, %d)",
+            this.getId(), this.getUser().getId()
         );
         
         try {
