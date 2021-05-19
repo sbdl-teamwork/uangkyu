@@ -74,7 +74,11 @@ public class Modal extends javax.swing.JFrame {
             .setUser(this.dashboard.user);
         
         try {
-            activityService.update();
+            if (typeActivity.equals("+")) {
+                activityService.updateIncome();
+            } else {
+                activityService.update();
+            }
             this.dashboard.refreshUI();
             this.dashboard.resetForm();
         } catch (Exception err) {
