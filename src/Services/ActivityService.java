@@ -125,8 +125,8 @@ public class ActivityService extends Activity {
     
     public ArrayList<Activity> getByInterval(String from, String to) throws Exception {
         String query = String.format(
-            "SELECT * FROM %s INNER JOIN types ON activities.type = types.id WHERE activities.updated_at >= '%s' AND activities.updated_at <= '%s' AND user_id = %d ORDER BY updated_at DESC",
-            this.tableName, from, to, this.getUser().getId()
+            "SELECT * FROM transaction_activities WHERE updated_at >= '%s' AND updated_at <= '%s' AND user_id = %d ORDER BY updated_at DESC",
+            from, to, this.getUser().getId()
         );
         
         ArrayList<Activity> activities =  new ArrayList<Activity>();
