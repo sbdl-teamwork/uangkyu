@@ -104,23 +104,6 @@ public class ActivityService extends Activity {
         return activities;
     }
     
-    public ArrayList<Activity> getAll() throws Exception {
-        String query = String.format(
-            "SELECT * FROM %s ORDER BY updated_at DESC",
-            this.tableName
-        );
-        
-        ArrayList<Activity> activities =  new ArrayList<Activity>();
-        
-        try {
-            activities = this.get(query);
-        } catch (Exception err) {
-            throw err;
-        }
-        
-        return activities;
-    }
-    
     public float getTotalIncome(String from, String to) throws Exception {
         String query = String.format(
             "SELECT get_total_income(%d, '%s', '%s') AS income",
