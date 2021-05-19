@@ -636,15 +636,13 @@ public class Dashboard extends javax.swing.JFrame {
         float nominal = Math.abs(Float.parseFloat(this.inputNominal.getText()));
         String dateAt = time.parseDatetime();
         
-        Activity activity = new Activity();
+        ActivityService activityService = new ActivityService();
         
-        activity
+        activityService
             .setDescription(description)
             .setNominal(nominal)
             .setDateAt(dateAt)
             .setUser(this.user);
-        
-        ActivityService activityService = new ActivityService(activity);
         
         try {
             if (typeActivity.equals("+")) {
