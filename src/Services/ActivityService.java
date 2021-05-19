@@ -30,51 +30,10 @@ public class ActivityService extends Activity {
         this.setDateAt(activity.getDateAt());
     }
     
-    public void insert() throws Exception {
-        System.out.println(this.getType().getId());
-        String query = String.format(
-            "INSERT INTO %s (description, nominal, user_id, type, created_at, updated_at) VALUES (\"%s\", %f, %d, '%s', \"%s\", \"%s\")", 
-            this.tableName, 
-            this.getDescription(), 
-            this.getNominal(), 
-            this.getUser().getId(), 
-            this.getType().getId(),
-            this.getCreatedAt(), 
-            this.getUpdatedAt()
-        );
-        System.out.println(query);
-        try {
-            Statement statement = Database.ConfigDB().createStatement();
-            statement.executeUpdate(query);
-        } catch (Exception err) {
-            throw err;
-        }
-    }
-    
     public void delete() throws Exception {
         String query = String.format(
             "CALL delete_activity(%d, %d)",
             this.getId(), this.getUser().getId()
-        );
-        
-        try {
-            Statement statement = Database.ConfigDB().createStatement();
-            statement.executeUpdate(query);
-        } catch (Exception err) {
-            throw err;
-        }
-    }
-    
-    public void update() throws Exception {
-        String query = String.format(
-            "UPDATE %s SET description = '%s', nominal = %f, updated_at = \"%s\", type = '%s' WHERE id = %d AND user_id = %d",
-            this.tableName, 
-            this.getDescription(), 
-            this.getNominal(), 
-            this.getUpdatedAt(),
-            this.getType().getId(),
-            this.getId(),
-            this.getUser().getId()
         );
         
         try {
