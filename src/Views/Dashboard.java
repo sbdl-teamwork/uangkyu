@@ -634,8 +634,7 @@ public class Dashboard extends javax.swing.JFrame {
         
         String description = this.inputDescription.getText();
         float nominal = Math.abs(Float.parseFloat(this.inputNominal.getText()));
-        String createdAt = time.parseDatetime();
-        String updatedAt = time.parseDatetime();
+        String dateAt = time.parseDatetime();
         
         String typeId = typeActivity.equals("+") ? "PMSK" : "PLRN";
         
@@ -646,8 +645,7 @@ public class Dashboard extends javax.swing.JFrame {
         activity
             .setDescription(description)
             .setNominal(nominal)
-            .setCreatedAt(createdAt)
-            .setUpdatedAt(updatedAt)
+            .setDateAt(dateAt)
             .setType(type)
             .setUser(this.user);
         
@@ -693,7 +691,7 @@ public class Dashboard extends javax.swing.JFrame {
             for(Activity item : activities) {
                 DefaultTableModel tableModel = (DefaultTableModel)this.jTable1.getModel();
                 tableModel.addRow(
-                    new Object[]{item.getId(),item.getUpdatedAt() , item.getDescription(), item.getNominal(), item.getType().getName()}
+                    new Object[]{item.getId(),item.getDateAt() , item.getDescription(), item.getNominal(), item.getType().getName()}
                 );
             }
         } catch(Exception err) {

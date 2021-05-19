@@ -27,6 +27,7 @@ public class ActivityService extends Activity {
         this.setUpdatedAt(activity.getUpdatedAt());
         this.setUser(activity.getUser());
         this.setType(activity.getType());
+        this.setDateAt(activity.getDateAt());
     }
     
     public void insert() throws Exception {
@@ -97,6 +98,7 @@ public class ActivityService extends Activity {
                 int id = result.getInt("id");
                 String description = result.getString("description");
                 float nominal = result.getFloat("nominal");
+                String dateAt = result.getString("date_at");
                 String createdAt = result.getString("created_at");
                 String updatedAt = result.getString("updated_at");
                 
@@ -108,6 +110,7 @@ public class ActivityService extends Activity {
                 activity
                     .setId(id)
                     .setDescription(description)
+                    .setDateAt(dateAt)
                     .setCreatedAt(createdAt)
                     .setUpdatedAt(updatedAt)
                     .setType(type)
@@ -125,9 +128,11 @@ public class ActivityService extends Activity {
     
     public ArrayList<Activity> getByInterval(String from, String to) throws Exception {
         String query = String.format(
-            "SELECT * FROM transaction_activities WHERE updated_at >= '%s' AND updated_at <= '%s' AND user_id = %d ORDER BY updated_at DESC",
+            "SELECT * FROM transaction_activities WHERE date_at >= '%s' AND date_at <= '%s' AND user_id = %d ORDER BY date_at DESC",
             from, to, this.getUser().getId()
         );
+        
+        System.out.println(query);
         
         ArrayList<Activity> activities =  new ArrayList<Activity>();
         
@@ -209,7 +214,7 @@ public class ActivityService extends Activity {
             this.getDescription(), 
             this.getNominal(), 
             this.getUser().getId(), 
-            this.getCreatedAt()
+            this.getDateAt()
         );
         
         try {
@@ -226,7 +231,7 @@ public class ActivityService extends Activity {
             this.getDescription(), 
             this.getNominal(), 
             this.getUser().getId(), 
-            this.getCreatedAt()
+            this.getDateAt()
         );
         
         try {
@@ -244,7 +249,7 @@ public class ActivityService extends Activity {
             this.getDescription(), 
             this.getNominal(), 
             this.getUser().getId(), 
-            this.getUpdatedAt()
+            this.getDateAt()
         );
         
         try {
@@ -262,7 +267,7 @@ public class ActivityService extends Activity {
             this.getDescription(), 
             this.getNominal(), 
             this.getUser().getId(), 
-            this.getUpdatedAt()
+            this.getDateAt()
         );
         
         try {
