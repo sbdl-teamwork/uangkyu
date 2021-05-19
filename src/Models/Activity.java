@@ -18,6 +18,7 @@ public class Activity {
     private int id;
     private String description;
     private float nominal;
+    private String dateAt;
     private String createdAt;
     private String updatedAt;
     private User user;
@@ -84,6 +85,15 @@ public class Activity {
     
     public Activity setType(Type type) {
         this.type = type;
+        return this;
+    }
+    
+    public String getDateAt() {
+        return dateAt;
+    }
+    
+    public Activity setDateAt(String dateAt) {
+        this.dateAt = dateAt;
         return this;
     }
 }
