@@ -636,17 +636,12 @@ public class Dashboard extends javax.swing.JFrame {
         float nominal = Math.abs(Float.parseFloat(this.inputNominal.getText()));
         String dateAt = time.parseDatetime();
         
-        String typeId = typeActivity.equals("+") ? "PMSK" : "PLRN";
-        
         Activity activity = new Activity();
-        Models.Type type = new Models.Type();
-        type.setId(typeId);
         
         activity
             .setDescription(description)
             .setNominal(nominal)
             .setDateAt(dateAt)
-            .setType(type)
             .setUser(this.user);
         
         ActivityService activityService = new ActivityService(activity);
