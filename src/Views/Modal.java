@@ -59,18 +59,13 @@ public class Modal extends javax.swing.JFrame {
         float nominal = Float.parseFloat(this.inputNominal.getText());
         String dateAt = time.parseDatetime();
         
-        String typeId = typeActivity == "+" ? "PMSK" : "PLRN";
-        
         ActivityService activityService = new ActivityService();
-        Models.Type type = new Models.Type();
-        type.setId(typeId);
         
         activityService
             .setId(this.id)
             .setDescription(description)
             .setNominal(nominal)
             .setDateAt(dateAt)
-            .setType(type)
             .setUser(this.dashboard.user);
         
         try {
