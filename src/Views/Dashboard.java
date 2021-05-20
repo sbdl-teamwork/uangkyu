@@ -589,7 +589,6 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void startIntervalDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_startIntervalDatePropertyChange
         try {
-            System.out.println(this.startIntervalDate.getDate().getDay());
             this.refreshUI();
         } catch (Exception err) {
             
@@ -598,7 +597,6 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void endIntervalDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_endIntervalDatePropertyChange
         try {
-            System.out.println(this.endIntervalDate.getDate().getDay());
             this.refreshUI();
         } catch (Exception err) {
             
