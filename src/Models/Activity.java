@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 package Models;
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import Utils.Database;
 
 /**
  *

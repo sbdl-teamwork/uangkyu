@@ -9,7 +9,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.util.ArrayList;
-import java.lang.Math;
 import Models.Activity;
 import Models.User;
 import Services.ActivityService;

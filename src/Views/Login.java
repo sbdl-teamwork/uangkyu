@@ -8,7 +8,6 @@ package Views;
 import Models.User;
 import Services.UserService;
 import javax.swing.JOptionPane;
-import java.io.File;
 import java.io.FileWriter;
 
 /**
