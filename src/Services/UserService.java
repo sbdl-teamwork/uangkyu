@@ -20,6 +20,10 @@ import java.util.Scanner;
 public class UserService extends User {
     public UserService() {}
     
+    /**
+     * method register digunakan untuk mendaftarkan user
+     * @throws Exception 
+     */
     public void register() throws Exception {
         String query = String.format(
             "CALL register_user('%s', '%s', '%s')", 
@@ -34,6 +38,12 @@ public class UserService extends User {
         }
     }
     
+    /**
+     * method login() digunakan untuk mencari user berdasarkan email dan password
+     * Jadi, pada saat login dibutuhkan email dan password
+     * @return
+     * @throws Exception 
+     */
     public User login() throws Exception {
         String query = String.format(
             "SELECT * FROM users WHERE email = '%s' AND password = '%s'",
@@ -67,6 +77,11 @@ public class UserService extends User {
         return user;
     }
     
+    /**
+     * getUserByEmail digunakan untuk mencari user berdasarkan email
+     * @return
+     * @throws Exception 
+     */
     public User getUserByEmail() throws Exception {
         String query = String.format(
             "SELECT * FROM users WHERE email = '%s'",
@@ -104,6 +119,11 @@ public class UserService extends User {
         return user;
     }
     
+    /**
+     * getCurrentUser digunakan untuk mengambil data user berdasarkan file email.txt
+     * @return
+     * @throws Exception 
+     */
     public User getCurrentUser() throws Exception {
         File file = new File("email.txt");
         Scanner reader = new Scanner(file);
@@ -115,6 +135,10 @@ public class UserService extends User {
         return userService.getUserByEmail();   
     }
     
+    /**
+     * logout() digunakan untuk menghapus isi dari file email.txt
+     * @throws Exception 
+     */
     public void logout() throws Exception {
         try {
             FileWriter file = new FileWriter("email.txt");
