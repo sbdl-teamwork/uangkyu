@@ -30,6 +30,10 @@ public class ActivityService extends Activity {
         this.setDateAt(activity.getDateAt());
     }
     
+    /**
+     * method delete() digunakan untuk menghapus activity berdasarkan id dan user_id
+     * @throws Exception 
+     */
     public void delete() throws Exception {
         String query = String.format(
             "CALL delete_activity(%d, %d)",
@@ -44,6 +48,13 @@ public class ActivityService extends Activity {
         }
     }
     
+    /**
+     * getByInterval() digunakan untuk mencari activity dengan range tertentu dari views transaction_activities
+     * @param from
+     * @param to
+     * @return
+     * @throws Exception 
+     */
     public ArrayList<Activity> getByInterval(String from, String to) throws Exception {
         String query = String.format(
             "SELECT * FROM transaction_activities WHERE date_at >= '%s' AND date_at <= '%s' AND user_id = %d ORDER BY date_at DESC",
@@ -88,6 +99,13 @@ public class ActivityService extends Activity {
         return activities;
     }
     
+    /**
+     * getTotalIncome() digunakan untuk mencari total pemasukan dari range tanggal tertentu
+     * @param from
+     * @param to
+     * @return
+     * @throws Exception 
+     */
     public float getTotalIncome(String from, String to) throws Exception {
         String query = String.format(
             "SELECT get_total_income(%d, '%s', '%s') AS income",
@@ -111,6 +129,13 @@ public class ActivityService extends Activity {
         return total;
     }
     
+    /**
+     * getTotalIncome() digunakan untuk mencari total pengeluaran dari range tanggal tertentu
+     * @param from
+     * @param to
+     * @return
+     * @throws Exception 
+     */
     public float getTotalExpense(String from, String to) throws Exception {
         String query = String.format(
             "SELECT get_total_expense(%d, '%s', '%s') AS expense",
@@ -134,6 +159,11 @@ public class ActivityService extends Activity {
         return total;
     }
     
+    /**
+     * insertIncome() digunakan untuk menambahkan aktifitas pemasukan
+     * menggunakan procedure insert_income_activity
+     * @throws Exception 
+     */
     public void insertIncome() throws Exception {
         String query = String.format(
             "CALL insert_income_activity('%s', %f, %d, '%s')",
@@ -151,6 +181,11 @@ public class ActivityService extends Activity {
         }
     }
     
+    /**
+     * insertIncome() digunakan untuk menambahkan aktifitas pengeluaran
+     * menggunakan procedure insert_expense_activity
+     * @throws Exception 
+     */
     public void insertExpense() throws Exception {
         String query = String.format(
             "CALL insert_expense_activity('%s', %f, %d, '%s')",
@@ -168,6 +203,11 @@ public class ActivityService extends Activity {
         }
     }
     
+    /**
+     * updateIncome() digunakan untuk mengubah activity menjadi pemasukan
+     * menggunakan procedure update_income_activity
+     * @throws Exception 
+     */
     public void updateIncome() throws Exception {
         String query = String.format(
             "CALL update_income_activity(%d, '%s', %f, %d, '%s')",
@@ -186,6 +226,11 @@ public class ActivityService extends Activity {
         }
     }
     
+    /**
+     * updateIncome() digunakan untuk mengubah activity menjadi pengeluaran
+     * menggunakan procedure update_expense_activity
+     * @throws Exception 
+     */
     public void updateExpense() throws Exception {
         String query = String.format(
             "CALL update_expense_activity(%d, '%s', %f, %d, '%s')",
