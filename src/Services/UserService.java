@@ -22,7 +22,7 @@ public class UserService extends User {
     
     public void register() throws Exception {
         String query = String.format(
-            "INSERT INTO users (name, email, password) VALUES ('%s', '%s', '%s')", 
+            "CALL register_user('%s', '%s', '%s')", 
             this.getName(), this.getEmail(), this.getPassword()
         );
         
