@@ -278,6 +278,11 @@ public class Register extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNameActionPerformed
 
+    /**
+     * method ini digunakan untuk melakukan pendaftaran user setelah user menginput email, name, password dan re-password
+     * jika email user sudah terdaftar maka akan muncul pesan error
+     * @param evt 
+     */
     private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
         
         String email = this.inputEmail.getText();
