@@ -717,7 +717,9 @@ public class Dashboard extends javax.swing.JFrame {
     public void resetForm() {
         this.inputDescription.setText("");
         this.inputNominal.setText("");
-        this.inputDate.setDate(null);
+        
+        Time time = new Time();
+        this.inputDate.setDate(time.getDate());
     }
     
 //    /**
