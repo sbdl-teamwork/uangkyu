@@ -23,7 +23,9 @@ import javax.swing.JLabel;
 public class Dashboard extends javax.swing.JFrame {
 
     /**
-     * Creates new form Dashboard
+     * Sebelum masuk kedalam Dashboard, maka dicari user terlebih dahulu berdasarkan email.txt
+     * mencari usernya menggunakan method dari UserService yaitu getCurrentUser
+     * data user yang sudah login dimasukkan kedalam property this.user yang bisa digunakan untuk data tambahan dalam menambahkan activity
      */
     public Dashboard() {
         try {
@@ -562,14 +564,28 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNominalActionPerformed
     
+    /**
+     * memanggil insertData ketika button "Pemasukan" di klik
+     * insertData dengan argumen "+"
+     * @param evt 
+     */
     private void buttonToSetIncomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonToSetIncomeMouseClicked
         this.insertData("+");
     }//GEN-LAST:event_buttonToSetIncomeMouseClicked
 
+    /**
+     * memanggil insertData ketika button "Pengeluaran" di klik
+     * insertData dengan argumen "-"
+     * @param evt 
+     */
     private void buttonToSetExpenseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonToSetExpenseMouseClicked
         this.insertData("-");
     }//GEN-LAST:event_buttonToSetExpenseMouseClicked
 
+    /**
+     * menampilkan modal edit form ketika salah satu baris dari tabel di klik
+     * @param evt 
+     */
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int index = this.jTable1.getSelectedRow();
         int id = Integer.parseInt(this.jTable1.getValueAt(index, 0).toString());
@@ -586,6 +602,10 @@ public class Dashboard extends javax.swing.JFrame {
             .run();
     }//GEN-LAST:event_jTable1MouseClicked
 
+    /**
+     * memperbarui tampilan ketika input tanggal "From"/ "Dari" diubah
+     * @param evt 
+     */
     private void startIntervalDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_startIntervalDatePropertyChange
         try {
             this.refreshUI();
@@ -594,6 +614,10 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_startIntervalDatePropertyChange
 
+    /**
+     * memperbarui tampilan ketika input tanggal "To" / "Sampai" diubah
+     * @param evt 
+     */
     private void endIntervalDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_endIntervalDatePropertyChange
         try {
             this.refreshUI();
@@ -602,6 +626,10 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_endIntervalDatePropertyChange
 
+    /**
+     * melakukan logout pada user, ketika user mengklik logout
+     * @param evt 
+     */
     private void logoutButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutButtonMouseClicked
         // TODO add your handling code here:
         try {
@@ -613,6 +641,12 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_logoutButtonMouseClicked
     
+    /**
+     * insertData digunakan untuk menambahkan activity berdasarkan parameter typeActivity
+     * jika typeActivity adalah '+' maka masuk kedalam income / pemasukan
+     * tapi, jika typeActivity adalah '-' maka masuk kedalam expense / pengeluaran
+     * @param typeActivity 
+     */
     public void insertData(String typeActivity) {
         try {
             Float.parseFloat(this.inputNominal.getText());
@@ -654,6 +688,9 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * centeringTableColumn() digunakan untuk mengubah posisi setiap baris tabel ke tengah
+     */
     public void centeringTableColumn() {
         DefaultTableCellRenderer centerAlign = new DefaultTableCellRenderer();
         centerAlign.setHorizontalAlignment(JLabel.CENTER);
@@ -665,6 +702,10 @@ public class Dashboard extends javax.swing.JFrame {
                 .setHorizontalAlignment(JLabel.CENTER);
     }
     
+    /**
+     * refreshUI() digunakan untuk memperbarui tampilan aplikasi
+     * yang diperbarui yaitu total nominal dan isi dari tabel pada aplikasi
+     */
     public void refreshUI() {
         ((DefaultTableModel)this.jTable1.getModel()).setRowCount(0);
         
@@ -714,6 +755,10 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * resetForm() digunakan untuk melakukan reset pada form input activity
+     * tanggalnya akan diubah ke waktu sekarang
+     */
     public void resetForm() {
         this.inputDescription.setText("");
         this.inputNominal.setText("");
