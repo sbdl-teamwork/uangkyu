@@ -24,6 +24,10 @@ public class Modal extends javax.swing.JFrame {
         this.dashboard = dashboard;
     }
     
+    /**
+     * method run() digunakan untuk menjalan kan modal
+     * setelah modal muncul maka ditambahkan inputan awal
+     */
     public void run() {
         this.setVisible(true);
         try {
@@ -37,6 +41,12 @@ public class Modal extends javax.swing.JFrame {
         this.inputNominal.setText(String.valueOf(Math.abs(this.nominal)));
     }
 
+    /**
+     * updateData digunakan untuk mengupdate activity berdasarkan parametere typeActivity
+     * jika typeActivity adalah "+" maka akan diubah ke income / pemasukan
+     * dan jika typeActivity adalah "-" maka akan diubah ke expense / pengeluaran
+     * @param typeActivity 
+     */
     public void updateData(String typeActivity) {
         try {
             Float.parseFloat(this.inputNominal.getText());
@@ -335,20 +345,36 @@ public class Modal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputNominalActionPerformed
 
+    /**
+     * mengupdate data ke income ketika mengklik button "Pemasukan"
+     * @param evt 
+     */
     private void buttonToSetIncomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonToSetIncomeMouseClicked
         this.updateData("+");
         this.setVisible(false);
     }//GEN-LAST:event_buttonToSetIncomeMouseClicked
 
+    /**
+     * mengupdate data ke expense ketika mengklik button "Pengeluaran"
+     * @param evt 
+     */
     private void buttonToSetExpenseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonToSetExpenseMouseClicked
         this.updateData("-");
         this.setVisible(false);
     }//GEN-LAST:event_buttonToSetExpenseMouseClicked
 
+    /**
+     * menutup modal ketika mengklik "Close"
+     * @param evt 
+     */
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    /**
+     * menghapus activity saat user mengklik "Hapus"
+     * @param evt 
+     */
     private void buttonToDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonToDeleteMouseClicked
         ActivityService activityService = new ActivityService();
         activityService
