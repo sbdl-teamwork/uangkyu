@@ -234,10 +234,18 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_inputPasswordActionPerformed
 
+    /**
+     * method ini digunakan untuk mencari user setelah menginput email dan password, dan mengklik button "Login"
+     * ketika tidak ada user maka akan menampilkan error bahwa user tidak ditemukan
+     * @param evt 
+     */
     private void requestLoginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_requestLoginButtonMouseClicked
         String email = this.inputEmail.getText();
         String password = this.inputPassword.getText();
         
+        /**
+         * melakukan validasi ketika user tidak menginput email dan password
+         */
         if (email.equals("") || password.equals("")) {
             JOptionPane.showMessageDialog(this, "Harap isi form dengan benar");
             return;
