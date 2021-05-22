@@ -26,12 +26,20 @@ public class Time {
         return this;
     }
     
+    /**
+     * getDatetimeNow() digunakan untuk mengambil datetime sekarang
+     * @return 
+     */
     public String getDatetimeNow() {
         Calendar calendar = Calendar.getInstance();
         this.setDate(calendar.getTime());
         return parseDatetime();
     }
     
+    /**
+     * parseDatetime digunakan untuk mengubah date Java menjadi datetime di mysql
+     * @return 
+     */
     public String parseDatetime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(Time.DateFormat);
         return dateFormat.format(this.getDate());
