@@ -722,9 +722,8 @@ public class Dashboard extends javax.swing.JFrame {
             ArrayList<Activity> activities = activityService.getByInterval(startInterval, endInterval);
             for(Activity item : activities) {
                 DefaultTableModel tableModel = (DefaultTableModel)this.jTable1.getModel();
-                String dateAt = item.getDateAt().replace(" 00:00:00", "");
                 tableModel.addRow(
-                    new Object[]{item.getId(), dateAt, item.getDescription(), item.getNominal(), item.getType().getName()}
+                    new Object[]{item.getId(), item.getDateAt(), item.getDescription(), item.getNominal(), item.getType().getName()}
                 );
             }
         } catch(Exception err) {
