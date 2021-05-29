@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Bulan Mei 2021 pada 17.03
+-- Waktu pembuatan: 29 Bulan Mei 2021 pada 05.50
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.5
 
@@ -42,10 +42,10 @@ END$$
 
 DROP PROCEDURE IF EXISTS `insert_income_activity`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_income_activity` (IN `description` VARCHAR(250), IN `nominal` FLOAT, IN `user_id` INT, IN `date_at` DATETIME)  BEGIN
-	INSERT INTO activities 
-    	(description, nominal, user_id, date_at, type) 
-    VALUES 
-    	(description, nominal, user_id, date_at,'PMSK');
+    INSERT INTO activities 
+    (description, nominal, user_id, date_at, type) 
+            VALUES
+	(description, nominal, user_id, date_at, 'PMSK');
 END$$
 
 DROP PROCEDURE IF EXISTS `register_user`$$
@@ -119,9 +119,9 @@ CREATE TABLE `activities` (
 --
 -- Trigger `activities`
 --
-DROP TRIGGER IF EXISTS `activity_update_at`;
+DROP TRIGGER IF EXISTS `activity_updated_at`;
 DELIMITER $$
-CREATE TRIGGER `activity_update_at` BEFORE UPDATE ON `activities` FOR EACH ROW BEGIN
+CREATE TRIGGER `activity_updated_at` BEFORE UPDATE ON `activities` FOR EACH ROW BEGIN
     SET NEW.updated_at = NOW();
 END
 $$
